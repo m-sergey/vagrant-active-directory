@@ -34,6 +34,7 @@ Vagrant.configure("2") do |config|
     cfg.vm.provision "shell", reboot: true
     cfg.vm.provision "shell", path: "scripts/configure_ad.ps1", privileged: false, args: "'#{domain_fqdn}' '#{domain_netbios}' '#{domain_safemode_password}'"
     cfg.vm.provision "shell", reboot: true
+    cfg.vm.provision "shell", path: "scripts/install_adexplorer.ps1", privileged: false
 
     cfg.vm.provider "virtualbox" do |vb, override|
       vb.name = vmname
