@@ -7,10 +7,6 @@ domain_fqdn = "example.local"
 domain_netbios = "EXAMPLE"
 domain_safemode_password = "Admin123#"
 
-unless Vagrant.has_plugin?("vagrant-reload")
-  raise 'Plugin "vagrant-reload" is missing. Please run "vagrant plugin install vagrant-reload"'
-end
-
 Vagrant.configure("2") do |config|
   config.vm.define "dc" do |cfg|
     cfg.vm.box = "gusztavvargadr/windows-server"
@@ -30,10 +26,10 @@ Vagrant.configure("2") do |config|
     cfg.vm.network :private_network, ip: "10.3.1.2"
     cfg.vm.provision "shell", path: "scripts/disable_wu.ps1", privileged: false
     cfg.vm.provision "shell", path: "scripts/disable_rdp_nla.ps1", privileged: false
-    cfg.vm.provision "shell", path: "scripts/install_ad.ps1", privileged: false 
-    cfg.vm.provision "reload"
+    cfg.vm.provision "shell", path: "scripts/install_ad.ps1", privileged: false
+    cfg.vm.provision "shell", reboot: true
     cfg.vm.provision "shell", path: "scripts/configure_ad.ps1", privileged: false, args: "'#{domain_fqdn}' '#{domain_netbios}' '#{domain_safemode_password}'"
-    cfg.vm.provision "reload"
+    cfg.vm.provision "shell", reboot: true
 
     cfg.vm.provider "virtualbox" do |vb, override|
       vb.name = vmname
