@@ -3,8 +3,8 @@
 
 vmname = "dc"
 hostname = "dc"
-domain_fqdn = "bitfrickler.local"
-domain_netbios = "BITFRICKLER"
+domain_fqdn = "example.local"
+domain_netbios = "EXAMPLE"
 domain_safemode_password = "Admin123#"
 
 Vagrant.configure("2") do |config|

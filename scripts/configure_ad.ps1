@@ -1,7 +1,7 @@
 param
 (
-    [string]$domainName = "bitfrickler.local",
-    [string]$domainNetbiosName = "BITFRICKLER",
+    [string]$domainName = "example.local",
+    [string]$domainNetbiosName = "EXAMPLE",
     [string]$safeModePass = "Admin123#"
 )
 
