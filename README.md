@@ -25,10 +25,14 @@ The machine will map the **LDAP** Ports to `7389` (ldap) and `7636` (ldaps) on t
     netbios domain: EXAMPLE
     user:           vagrant@example.local
     password:       vagrant
-    
+
+For **SSL and TLS** a self-signed certificate is generated when the machine starts for the first time. The certificate is also put into the repository's root folder name `cert.der`. You may need to disable certificate verification of your client, or import the certificate to you trusted storage. If needed, you can convert the certificate to PEM format using openssl:
+
+    openssl x509 -inform der -in cert.der -out cert.pem
+
 **Shutdown** the machine with:
 
-   vagrant halt
+    vagrant halt
 
 The box is based on the official Windows Server 2019 Trial images by Microsoft. The installation is **valid for 180 days**. You can simply destroy the machine and set it up again for another trial period.
 
@@ -41,4 +45,5 @@ This image is based on the works and information at
   * https://github.com/bitfrickler/vagrant-active-directory-2016
   * https://github.com/rgl/windows-domain-controller-vagrant
   * https://emeneye.wordpress.com/2013/02/28/importing-users-into-active-directory-from-a-csv-file-using-powershell/
+  * https://infiniteloop.io/powershell-self-signed-certificate-via-self-signed-root-ca/
   * various tutorials on PowerShell scripting
