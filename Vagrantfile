@@ -7,6 +7,10 @@ domain_fqdn = "example.local"
 domain_netbios = "EXAMPLE"
 domain_safemode_password = "Admin123#"
 
+unless Vagrant.has_plugin?("vagrant-reload")
+  raise 'Plugin "vagrant-reload" is missing. Please run "vagrant plugin install vagrant-reload"'
+end
+
 Vagrant.configure("2") do |config|
   config.vm.define "dc" do |cfg|
     cfg.vm.box = "windows_server_2016_dc"
