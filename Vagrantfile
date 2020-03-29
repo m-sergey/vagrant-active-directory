@@ -13,7 +13,7 @@ end
 
 Vagrant.configure("2") do |config|
   config.vm.define "dc" do |cfg|
-    cfg.vm.box = "windows_server_2016_dc"
+    cfg.vm.box = "gusztavvargadr/windows-server"
     cfg.vm.hostname = hostname
 
     # use the plaintext WinRM transport and force it to use basic authentication.
@@ -28,8 +28,6 @@ Vagrant.configure("2") do |config|
     cfg.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", auto_correct: true
     cfg.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
     cfg.vm.network :private_network, ip: "10.3.1.2"
-    
-    cfg.vm.provision "shell", path: "scripts/remove_defender.ps1", privileged: false
     cfg.vm.provision "shell", path: "scripts/disable_wu.ps1", privileged: false
     cfg.vm.provision "shell", path: "scripts/disable_rdp_nla.ps1", privileged: false
     cfg.vm.provision "shell", path: "scripts/install_ad.ps1", privileged: false 
