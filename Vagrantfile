@@ -28,6 +28,7 @@ Vagrant.configure("2") do |config|
     cfg.vm.network :forwarded_port, guest: 389, host: 7389, id: "ldap", auto_correct: true
     cfg.vm.network :forwarded_port, guest: 636, host: 7636, id: "ldaps", auto_correct: true
 
+    cfg.vm.provision "shell", path: "scripts/remove_defender_core.ps1", privileged: false
     cfg.vm.provision "shell", path: "scripts/disable_wu.ps1", privileged: false
     cfg.vm.provision "shell", path: "scripts/disable_rdp_nla.ps1", privileged: false
     cfg.vm.provision "shell", path: "scripts/install_ad.ps1", privileged: false
