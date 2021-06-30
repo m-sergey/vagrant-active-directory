@@ -8,7 +8,7 @@ To do this it provides a Vagrant file that lets you spin up a preconfigured virt
 
 ## Usage
 
-This vagrant box provides you with a preconfigured AD-Server filled with **users** to test against. Have a look at `scripts/users.csv` to see what's available. They all have the password `foobar123!`.
+This vagrant box provides you with a preconfigured AD-Server filled with **users** to test against. Have a look at `scripts/users.csv` to see what's available. They all have the password `Foo_b_ar123!`.
 
 To get started, install `vagrant` and `virtualbox` and clone this repository. In the repo run the following to **start the server**:
 

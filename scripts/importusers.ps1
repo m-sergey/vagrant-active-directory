@@ -58,7 +58,7 @@ foreach ($User in $ADUsers)
             -Surname $User.last `
             -Enabled $True `
             -DisplayName "$( $User.first ) $( $User.last )" `
-            -AccountPassword (convertto-securestring "foobar123!" -AsPlainText -Force) `
+            -AccountPassword (convertto-securestring "Foo_b_ar123!" -AsPlainText -Force) `
             -OfficePhone $User.phone `
             -City $User.city `
             -Company $User.company `
