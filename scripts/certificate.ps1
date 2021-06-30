@@ -4,7 +4,7 @@
 param
 (
     [string]$hostName = "dc",
-    [string]$domainName = "example.local"
+    [string]$domainName = "example.local",
     [string]$localPath = "C:\vagrant"
 )
 
