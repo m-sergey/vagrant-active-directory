@@ -25,10 +25,10 @@ if (-Not(Get-ADGroup -F { Name -eq "beta" }))
 {
     NEW-ADGroup -name "beta"  -description "Beta Users"  -groupscope "Global"
 }
-if (-Not(Get-ADGroup -F { Name -eq "gamma nested" }))
+if (-Not(Get-ADGroup -F { Name -eq "Gamma Nested" }))
 {
-    NEW-ADGroup -name "gamma nested"  -description "Gamma Users nested within Beta"  -groupscope "Global"
-    Add-ADGroupMember "beta" "gamma nested"
+    NEW-ADGroup -name "Gamma Nested"  -description "Gamma Users nested within Beta"  -groupscope "Global"
+    Add-ADGroupMember "beta" "Gamma Nested"
 }
 if (-Not(Get-ADGroup -F { Name -eq "omega nested" }))
 {
