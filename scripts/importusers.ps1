@@ -33,7 +33,7 @@ if (-Not(Get-ADGroup -F { Name -eq "Gamma Nested" }))
 if (-Not(Get-ADGroup -F { Name -eq "omega nested" }))
 {
     NEW-ADGroup -name "omega nested"  -description "Omega Users nested within Gamma"  -groupscope "Global"
-    Add-ADGroupMember "gamma nested" "gamma nested"
+    Add-ADGroupMember "gamma nested" "omega nested"
 }
 
 # Import users from CSV (based on https://bit.ly/3as7DIH)
