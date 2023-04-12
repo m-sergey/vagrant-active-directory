@@ -1,6 +1,6 @@
 param
 (
-    [string]$DomainName = "example.local"
+    [string]$domainName = "example.local"
 )
 
 # wait until we can access the AD. this is needed to prevent errors like:
@@ -63,7 +63,7 @@ foreach ($User in $ADUsers)
             -City $User.city `
             -Company $User.company `
             -Department $User.department `
-            -EmailAddress "$Username@example.com" `
+            -EmailAddress "$Username@$domainName" `
             -HomePage $User.homepage `
             -MobilePhone $User.mobile `
             -PostalCode $User.postal_code `
