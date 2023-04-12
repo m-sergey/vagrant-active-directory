@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
       cfg.vm.network :forwarded_port, guest: 5985, host: "#{5985 - i}", id: "winrm", auto_correct: true
       cfg.vm.network :forwarded_port, guest: 22, host: "#{2222 - i}", id: "ssh", auto_correct: true
   #    cfg.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
-      cfg.vm.network :private_network, ip: "192.168.88.#{i + 2}"
+      cfg.vm.network :private_network, ip: "192.168.11.#{i + 2}", virtualbox__intnet: true
 
       cfg.vm.network :forwarded_port, guest: 389, host: 7389, id: "ldap", auto_correct: true
       cfg.vm.network :forwarded_port, guest: 636, host: 7636, id: "ldaps", auto_correct: true
