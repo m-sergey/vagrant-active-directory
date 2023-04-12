@@ -10,7 +10,7 @@ domain_safemode_password = "Admin123#"
 
 Vagrant.configure("2") do |config|
   (1..N).each do |i|
-    config.vm.define "dc" do |cfg|
+    config.vm.define "dc#{i}" do |cfg|
       cfg.vm.box = "gusztavvargadr/windows-server"
       cfg.vm.hostname = "#{hostname}#{i}" 
 
